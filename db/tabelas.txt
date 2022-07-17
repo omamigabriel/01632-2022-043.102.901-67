@@ -1,0 +1,63 @@
+
+CREATE DATABASE ist;
+USE ist;
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[conta](
+	[id_conta] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
+	[conta_numero] [varchar](50) NULL
+) ON [PRIMARY]
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[movimentacao](
+	[id_movimentacao] [int] IDENTITY(1,1) NOT NULL,
+	[id_conta] [int] NULL,
+	[valor] [float] NULL,
+	[movimentacao] [varchar](20) NOT NULL,
+	[data_movimentacao] [datetime] NULL
+) ON [PRIMARY]
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[pessoas](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nome] [varchar](200) NOT NULL,
+	[cpf] [varchar](11) NOT NULL,
+	[cep] [varchar](8) NOT NULL,
+	[numero] [varchar](8) NULL,
+	[logradouro] [varchar](200) NULL,
+	[bairro] [varchar](50) NULL,
+	[estado] [varchar](50) NULL,
+	[municipio] [varchar](50) NULL
+) ON [PRIMARY]
+
+INSERT INTO pessoas
+VALUES
+ ('Marcelo Ramos', '48349778032', '88705001', '10', 'Rua Luiz Demo', 'Passagem', 'SC', 'Tubarão'),
+ ('Renato Silva', '76537136024', '88705001', '10', 'Rua Luiz Demo', 'Passagem', 'SC', 'Tubarão'),
+ ('Maria Cordeiro', '01054804010', '88705001', '10', 'Rua Luiz Demo', 'Passagem', 'SC', 'Tubarão');
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[usuario](
+	[id_usuario] [int] IDENTITY(1,1) NOT NULL,
+	[nome] [varchar](200) NOT NULL,
+	[email] [varchar](200) NOT NULL,
+	[senha] [varchar](200) NOT NULL
+) ON [PRIMARY]
+
+INSERT INTO usuario VALUES ('Gabriel Omami', 'gabriel@fiesc.com', 'e10adc3949ba59abbe56e057f20f883e')
